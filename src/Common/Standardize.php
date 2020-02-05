@@ -144,7 +144,7 @@ class Standardize
      * @param string $xml
      * @return string
      */
-    protected function removeNS($xml)
+    public function removeNS($xml)
     {
         $sxe = new \SimpleXMLElement($xml);
         $dom_sxe = dom_import_simplexml($sxe);
