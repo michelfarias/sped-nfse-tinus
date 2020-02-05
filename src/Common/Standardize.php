@@ -158,9 +158,9 @@ class Standardize
         $xml = $dom->saveXML();
         if (stripos($xml, 'xmlns=') !== false) {
             $xml = preg_replace('~[\s]+xmlns=[\'"].+?[\'"]~i', null, $xml);
-            $xml = str_replace('default:', '', $xml);
             $xml = preg_replace('~[\s]+xmlns:default=[\'"].+?[\'"]~i', null, $xml);
         }
+        $xml = str_replace('default:', '', $xml);
         return $xml;
     }
 }
