@@ -3,7 +3,7 @@
         "municipio": "Parnamirim",
         "uf": "RN",
         "homologacao": "http://www2.tinus.com.br/csp/testepar/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/parnamirim/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/parnamirim/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -12,7 +12,7 @@
         "municipio": "Mossoró",
         "uf": "RN",
         "homologacao": "http://www2.tinus.com.br/csp/testemos/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/mossoro/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/mossoro/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -21,7 +21,7 @@
         "municipio": "São Goncalo",
         "uf": "RN",
         "homologacao": "http://www2.tinus.com.br/csp/testegon/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/saogoncalo/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/saogoncalo/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -30,7 +30,7 @@
         "municipio": "Jaboatão dos Guararapes",
         "uf": "PE",
         "homologacao": "http://www2.tinus.com.br/csp/testejab/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/jaboatao/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/jaboatao/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -39,7 +39,7 @@
         "municipio": "Olinda",
         "uf": "PE",
         "homologacao": "http://www2.tinus.com.br/csp/testeoli/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/olinda/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/olinda/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -48,7 +48,7 @@
         "municipio": "Cabedelo",
         "uf": "PB",
         "homologacao": "http://www2.tinus.com.br/csp/testecbd/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/cabedelo/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/cabedelo/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -57,7 +57,7 @@
         "municipio": "Camaragibe",
         "uf": "PE",
         "homologacao": "http://www2.tinus.com.br/csp/testecam/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/camaragibe/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/camaragibe/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -66,7 +66,7 @@
         "municipio": "Macaiba",
         "uf": "PE",
         "homologacao": "http://www2.tinus.com.br/csp/testemac/WSNFSE.",
-        "producao": "http://www.tinus.com.br/csp/macaiba/WSNFSE",
+        "producao": "http://www.tinus.com.br/csp/macaiba/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -74,8 +74,8 @@
     "2602902": {
         "municipio": "Cabo de Santo Agostinho",
         "uf": "PE",
-        "homologacao": "http://www2.tinus.com.br/csp/testecab/WSNFSE",
-        "producao": "http://www.tinus.com.br/csp/cabo/WSNFSE",
+        "homologacao": "http://www2.tinus.com.br/csp/testecab/WSNFSE.",
+        "producao": "http://www.tinus.com.br/csp/cabo/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
@@ -83,8 +83,8 @@
     "2606002": {
         "municipio": "Garanhuns",
         "uf": "PE",
-        "homologacao": "http://www2.tinus.com.br/csp/testegar/WSNFSE",
-        "producao": "http://www.tinus.com.br/csp/garanhuns/WSNFSE",
+        "homologacao": "http://www2.tinus.com.br/csp/testegar/WSNFSE.",
+        "producao": "http://www.tinus.com.br/csp/garanhuns/WSNFSE.",
         "version": "1.00",
         "msgns": "http://www2.tinus.com.br/WSNFSE",
         "soapns": "http://www2.tinus.com.br"
