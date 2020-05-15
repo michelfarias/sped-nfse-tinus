@@ -1,0 +1,903 @@
+
+
+[2020-05-06 14:40:23] `/var/www/sped/sped-nfse-tinus`
+
+                                                                                                              
+                75.7%                   47.3%                   75.0%                   72.3%                 
+                                                                                                              
+                                                                                                              
+                 Code                 Complexity             Architecture               Style                 
+
+
+Score scale: ◼ 1-49 ◼ 50-79 ◼ 80-100
+
+[CODE] 75.7 pts within 1754 lines
+
+Comments ...................................................... 45.5 %
+Classes ....................................................... 34.7 %
+Functions ...................................................... 0.0 %
+Globally ...................................................... 19.8 %
+
+[COMPLEXITY] 47.3 pts with average of 2.58 cyclomatic complexity
+
+[ARCHITECTURE] 75 pts within 21 files
+
+Classes ....................................................... 52.4 %
+Interfaces ..................................................... 9.5 %
+Globally ...................................................... 38.1 %
+Traits ......................................................... 0.0 %
+
+[MISC] 72.3 pts on coding style and 0 security issues encountered
+
+Press enter to see code issues...
+
+• [Code] Forbidden public property:
+  src/Common/Standardize.php:32: Do not use public properties. Use method access instead.
+  src/Common/Standardize.php:36: Do not use public properties. Use method access instead.
+  src/Common/Tools.php:26: Do not use public properties. Use method access instead.
+  +8 issues omitted
+
+• [Code] Forbidden setter:
+  src/Common/Soap/SoapBase.php:260: Setters are not allowed. Use constructor injection and behavior naming instead.
+  src/Common/Soap/SoapBase.php:307: Setters are not allowed. Use constructor injection and behavior naming instead.
+  src/Common/Soap/SoapCurl.php:155: Setters are not allowed. Use constructor injection and behavior naming instead.
+  +3 issues omitted
+
+• [Code] Class constant visibility:
+  src/Common/Soap/SoapInterface.php:31: Constant \NFePHP\NFSeTinus\Common\Soap\SoapInterface::SSL_TLSV1_2 visibility missing.
+  src/Tools.php:23: Constant \NFePHP\NFSeTinus\Tools::ERRO_EMISSAO visibility missing.
+  src/Tools.php:24: Constant \NFePHP\NFSeTinus\Tools::SERVICO_NAO_CONCLUIDO visibility missing.
+  +7 issues omitted
+
+• [Code] Unused variable:
+  src/Common/Soap/SoapCurl.php:140: Unused variable $soaperror.
+  src/Common/Soap/SoapCurl.php:141: Unused variable $ainfo.
+  src/Common/Soap/SoapCurl.php:142: Unused variable $headsize.
+  +1 issues omitted
+
+• [Code] Element name minimal length:
+  src/Common/Soap/SoapInterface.php:64: Variable name "ip" is only 2 chars long. Must be at least 3.
+  src/Rps.php:95: Variable name "nk" is only 2 chars long. Must be at least 3.
+  src/Rps.php:96: Variable name "nk" is only 2 chars long. Must be at least 3.
+  +20 issues omitted
+
+• [Code] Max nesting level:
+  src/Common/Signer.php:255: Only 2 indentation levels per function/method. Found 3 levels.
+  src/Common/Soap/SoapBase.php:424: Only 2 indentation levels per function/method. Found 3 levels.
+  src/Common/Soap/SoapCurl.php:44: Only 2 indentation levels per function/method. Found 3 levels.
+
+• [Code] Useless variable:
+  src/Common/FakePretty.php:24: Useless variable $html.
+
+• [Code] Useless overriding method:
+  src/Common/Soap/SoapCurl.php:29: Possible useless method overriding detected
+  src/Common/Soap/SoapFake.php:28: Possible useless method overriding detected
+  src/Tools.php:28: Possible useless method overriding detected
+
+• [Code] Unnecessary string concat:
+  src/Tools.php:173: String concat is not required here; use a single string instead
+  src/Tools.php:176: String concat is not required here; use a single string instead
+  src/Tools.php:177: String concat is not required here; use a single string instead
+  +38 issues omitted
+
+• [Code] Disallow empty:
+  src/Common/Tools.php:165: Use of empty() is disallowed.
+  src/Rps.php:62: Use of empty() is disallowed.
+  src/Rps.php:74: Use of empty() is disallowed.
+  +33 issues omitted
+
+• [Code] Language construct with parentheses:
+  examples/json_schema_v1_00.php:360: Usage of language construct "die" with parentheses is disallowed.
+
+• [Code] Disallow equal operators:
+  src/Common/Soap/SoapCurl.php:145: Operator != is disallowed, use !== instead.
+  src/Common/Soap/SoapCurl.php:157: Operator != is disallowed, use !== instead.
+  src/Common/Soap/SoapCurl.php:161: Operator != is disallowed, use !== instead.
+  +10 issues omitted
+
+• [Code] Declare strict types:
+  src/Rps.php:1: Missing declare(strict_types=1).
+  src/RpsInterface.php:1: Missing declare(strict_types=1).
+  src/Tools.php:1: Missing declare(strict_types=1).
+  +18 issues omitted
+
+• [Code] Explicit string variable:
+  src/Common/Tools.php:  
+@@ -119 +119 @@
+-        $action = "{$this->wsobj->msgns}.$operation.$operation";
++        $action = "{$this->wsobj->msgns}.${operation}.${operation}";
+@@ -138,2 +138,2 @@
+-            "SOAPAction: \"$action\"",
+-            "Content-length: $msgSize"
++            "SOAPAction: \"${action}\"",
++            "Content-length: ${msgSize}"
+@@ -184,3 +184,3 @@
+-            . "<$operation xmlns=\"{$this->wsobj->soapns}\">"
+-            . "$message"
+-            . "</$operation>"
++            . "<${operation} xmlns=\"{$this->wsobj->soapns}\">"
++            . "${message}"
++            . "</${operation}>"
+
+
+  src/Rps.php:  
+@@ -77 +77 @@
+-            $this->jsonschema = realpath("../storage/jsonSchemes/v$ver/rps.schema");
++            $this->jsonschema = realpath("../storage/jsonSchemes/v${ver}/rps.schema");
+
+
+  src/Tools.php:  
+@@ -52 +52 @@
+-            . "<Numero>$numero</Numero>"
++            . "<Numero>${numero}</Numero>"
+@@ -57 +57 @@
+-            . "<CodigoCancelamento>$codigo</CodigoCancelamento>"
++            . "<CodigoCancelamento>${codigo}</CodigoCancelamento>"
+@@ -82 +82 @@
+-            . "<Protocolo>$protocolo</Protocolo>"
++            . "<Protocolo>${protocolo}</Protocolo>"
+@@ -103,2 +103,2 @@
+-            . "<DataInicial>$dini</DataInicial>"
+-            . "<DataFinal>$dfim</DataFinal>"
++            . "<DataInicial>${dini}</DataInicial>"
++            . "<DataFinal>${dfim}</DataFinal>"
+@@ -111 +111 @@
+-                $content .= "<Cnpj>$tomadorCnpj</Cnpj>";
++                $content .= "<Cnpj>${tomadorCnpj}</Cnpj>";
+@@ -113 +113 @@
+-                $content .= "<Cpf>$tomadorCpf</Cpf>";
++                $content .= "<Cpf>${tomadorCpf}</Cpf>";
+@@ -117 +117 @@
+-                $content .= "<InscricaoMunicipal>$tomadorIM</InscricaoMunicipal>";
++                $content .= "<InscricaoMunicipal>${tomadorIM}</InscricaoMunicipal>";
+@@ -138,3 +138,3 @@
+-            . "<Numero>$numero</Numero>"
+-            . "<Serie>$serie</Serie>"
+-            . "<Tipo>$tipo</Tipo>"
++            . "<Numero>${numero}</Numero>"
++            . "<Serie>${serie}</Serie>"
++            . "<Tipo>${tipo}</Tipo>"
+@@ -168,2 +168,2 @@
+-            . "<LoteRps Id=\"$lote\">"
+-            . "<NumeroLote>$lote</NumeroLote>"
++            . "<LoteRps Id=\"${lote}\">"
++            . "<NumeroLote>${lote}</NumeroLote>"
+@@ -172 +172 @@
+-            . "<QuantidadeRps>$no_of_rps_in_lot</QuantidadeRps>"
++            . "<QuantidadeRps>${no_of_rps_in_lot}</QuantidadeRps>"
+
+
+  +5 issues omitted
+
+• [Code] Nullable type for null default value:
+  src/Rps.php:58: Parameter $rps has null default value, but is not marked as nullable.
+  src/Rps.php:72: Parameter $rps has null default value, but is not marked as nullable.
+  src/RpsInterface.php:27: Parameter $rps has null default value, but is not marked as nullable.
+  +8 issues omitted
+
+• [Code] Disallow mixed type hint:
+  src/Common/Soap/SoapBase.php:165: Usage of "mixed" type hint is disallowed.
+
+• [Code] Long type hints:
+  src/Tools.php:43: Expected "int" but found "integer" in @param annotation.
+  src/Tools.php:128: Expected "int" but found "integer" in @param annotation.
+  src/Tools.php:130: Expected "int" but found "integer" in @param annotation.
+  +5 issues omitted
+
+• [Code] Parameter type hint:
+  src/Tools.php:150: @param annotation of method \NFePHP\NFSeTinus\Tools::recepcionarLoteRps() does not specify type hint for items of its traversable parameter $arps.
+  src/Tools.php:155: Method \NFePHP\NFSeTinus\Tools::recepcionarLoteRps() does not have native type hint for its parameter $arps but it should be possible to add it based on @param annotation "array".
+  src/Tools.php:155: Method \NFePHP\NFSeTinus\Tools::recepcionarLoteRps() does not have native type hint for its parameter $lote but it should be possible to add it based on @param annotation "string".
+  +145 issues omitted
+
+• [Code] Property type hint:
+  src/Common/Tools.php:32: Property \NFePHP\NFSeTinus\Common\Tools::$soap does not have @var annotation for its value.
+  src/Common/Tools.php:33: Property \NFePHP\NFSeTinus\Common\Tools::$environment does not have @var annotation for its value.
+  src/Tools.php:26: Property \NFePHP\NFSeTinus\Tools::$xsdpath does not have @var annotation for its value.
+  +8 issues omitted
+
+• [Code] Return type hint:
+  src/Tools.php:97: Method \NFePHP\NFSeTinus\Tools::consultarNfse() does not have native return type hint for its return value but it should be possible to add it based on @return annotation "string".
+  src/Tools.php:133: Method \NFePHP\NFSeTinus\Tools::consultarNfsePorRps() does not have native return type hint for its return value but it should be possible to add it based on @return annotation "string".
+  src/Tools.php:155: Method \NFePHP\NFSeTinus\Tools::recepcionarLoteRps() does not have native return type hint for its return value but it should be possible to add it based on @return annotation "string".
+  +70 issues omitted
+
+• [Code] Useless function doc comment:
+  src/Common/Soap/SoapInterface.php:37: Method \NFePHP\NFSeTinus\Common\Soap\SoapInterface::loadCertificate() does not need documentation comment.
+
+• [Code] Phpdoc scalar:
+  src/Common/Signer.php:  
+@@ -185 +185 @@
+-     * @return boolean
++     * @return bool
+@@ -202 +202 @@
+-     * @return boolean
++     * @return bool
+@@ -221 +221 @@
+-     * @return boolean
++     * @return bool
+
+
+  src/Rps.php:  
+@@ -104 +104 @@
+-     * @return boolean
++     * @return bool
+
+
+  src/Tools.php:  
+@@ -42,2 +42,2 @@
+-     * @param integer $numero
+-     * @param integer $codigo
++     * @param int $numero
++     * @param int $codigo
+@@ -128 +128 @@
+-     * @param integer $numero
++     * @param int $numero
+@@ -130 +130 @@
+-     * @param integer $tipo
++     * @param int $tipo
+
+
+
+• [Code] Unused parameter:
+  src/Common/Soap/SoapCurl.php:47: Unused parameter $action.
+  src/Common/Tools.php:156: Unused parameter $operation.
+
+• [Code] Return assignment:
+  src/Common/FakePretty.php:  
+@@ -24,2 +24 @@
+-            $html = "Sem resposta";
+-            return $html;
++            return "Sem resposta";
+
+
+  src/Common/Standardize.php:  
+@@ -163,2 +163 @@
+-        $xml = str_replace('default:', '', $xml);
+-        return $xml;
++        return str_replace('default:', '', $xml);
+
+
+
+• [Code] Void return:
+  src/Common/Soap/SoapCurl.php:  
+@@ -155 +155 @@
+-    private function setCurlProxy(&$oCurl)
++    private function setCurlProxy(&$oCurl): void
+
+
+  src/Common/Tools.php:  
+@@ -73 +73 @@
+-    public function loadSoapClass(SoapInterface $soap)
++    public function loadSoapClass(SoapInterface $soap): void
+@@ -81 +81 @@
+-    protected function buildPrestadorTag()
++    protected function buildPrestadorTag(): void
+
+
+  src/Rps.php:  
+@@ -50 +50 @@
+-    public function config(\stdClass $config)
++    public function config(\stdClass $config): void
+@@ -72 +72 @@
+-    private function init(stdClass $rps = null)
++    private function init(stdClass $rps = null): void
+
+
+  +2 issues omitted
+
+Press enter to see complexity issues...
+
+• [Complexity] Having `classes` with more than 5 cyclomatic complexity is prohibited - Consider refactoring:
+  src/Common/Tools.php: 9 cyclomatic complexity
+  src/Rps.php: 8 cyclomatic complexity
+  src/Tools.php: 7 cyclomatic complexity
+  +5 issues omitted
+
+Press enter to see architecture issues...
+
+• [Architecture] Normal classes are forbidden. Classes must be final or abstract:
+  src/Common/Tools.php
+  src/Rps.php
+  src/Tools.php
+  +7 issues omitted
+
+• [Architecture] Class trait and interface length:
+  src/Common/Factory.php:22: Your class is too long. Currently using 489 lines. Can be up to 200 lines.
+  src/Common/Signer.php:26: Your class is too long. Currently using 299 lines. Can be up to 200 lines.
+  src/Common/Soap/SoapBase.php:25: Your class is too long. Currently using 467 lines. Can be up to 200 lines.
+
+• [Architecture] Method per class limit:
+  src/Common/Soap/SoapBase.php:25: Class has too many methods: 21. Can be up to 10 methods.
+
+• [Architecture] Property per class limit:
+  src/Common/Soap/SoapBase.php:25: "class" has too many properties: 30. Can be up to 10 properties.
+
+• [Architecture] Superfluous interface naming:
+  src/Common/Soap/SoapInterface.php:21: Superfluous suffix "Interface".
+  src/RpsInterface.php:20: Superfluous suffix "Interface".
+
+• [Architecture] Function length:
+  src/Common/Tools.php:117: Your function is too long. Currently using 31 lines. Can be up to 20 lines.
+  src/Tools.php:97: Your function is too long. Currently using 26 lines. Can be up to 20 lines.
+  src/Tools.php:155: Your function is too long. Currently using 25 lines. Can be up to 20 lines.
+  +18 issues omitted
+
+Press enter to see style issues...
+
+• [Style] End file newline:
+  examples/FakeRecepcionarLoteRps.php:117: Expected 1 newline at end of file; 0 found
+  examples/Rps.php:92: Expected 1 blank line at end of file; 2 found
+  examples/json_schema_v1_00.php:387: Expected 1 newline at end of file; 0 found
+  +2 issues omitted
+
+• [Style] Disallow long array syntax:
+  src/Common/Signer.php:240: Short array syntax must be used to define arrays
+
+• [Style] Line length:
+  src/Tools.php:97: Line exceeds maximum limit of 100 characters; contains 107 characters
+  src/Tools.php:117: Line exceeds 80 characters; contains 82 characters
+  src/Tools.php:171: Line exceeds 80 characters; contains 82 characters
+  +69 issues omitted
+
+• [Style] Space after cast:
+  src/Common/Tools.php:65: Expected 1 space(s) after cast statement; 0 found
+  src/Common/Tools.php:141: Expected 1 space(s) after cast statement; 0 found
+  src/Rps.php:113: Expected 1 space(s) after cast statement; 0 found
+
+• [Style] Space after not:
+  src/Rps.php:74: Expected 1 space(s) after NOT operator; 0 found
+  src/Rps.php:109: Expected 1 space(s) after NOT operator; 0 found
+  src/Rps.php:114: Expected 1 space(s) after NOT operator; 0 found
+  +37 issues omitted
+
+• [Style] Trailing array comma:
+  src/Common/Soap/SoapFake.php:51: Multi-line arrays must have a trailing comma after the last element.
+  src/Common/Standardize.php:48: Multi-line arrays must have a trailing comma after the last element.
+  src/Common/Tools.php:139: Multi-line arrays must have a trailing comma after the last element.
+  +6 issues omitted
+
+• [Style] Alphabetically sorted uses:
+  examples/FakeConsultarLoteRps.php:8: Use statements should be sorted alphabetically. The first wrong one is NFePHP\NFSeTinus\Common\Soap\SoapFake.
+  examples/FakeConsultarNfse.php:9: Use statements should be sorted alphabetically. The first wrong one is NFePHP\NFSeTinus\Common\FakePretty.
+  examples/FakeConsultarNfsePorRps.php:8: Use statements should be sorted alphabetically. The first wrong one is NFePHP\NFSeTinus\Common\Soap\SoapFake.
+  +1 issues omitted
+
+• [Style] Unused uses:
+  src/Common/Tools.php:22: Type NFePHP\NFSeTinus\RpsInterface is not used in this file.
+
+• [Style] Superfluous whitespace:
+  src/Rps.php:54: Whitespace found at end of line
+  src/Rps.php:67: Whitespace found at end of line
+  src/Rps.php:81: Whitespace found at end of line
+  +45 issues omitted
+
+• [Style] Doc comment spacing:
+  src/Tools.php:131: Expected 1 lines between different annotations types, found 0.
+  src/Tools.php:150: Expected 1 lines between description and annotations, found 0.
+  src/Tools.php:152: Expected 1 lines between different annotations types, found 0.
+  +146 issues omitted
+
+• [Style] Braces:
+  examples/FakeConsultarNfse.php:  
+@@ -12 +12,0 @@
+-
+@@ -42 +41,0 @@
+- 
+
+
+  examples/FakeConsultarNfsePorRps.php:  
+@@ -12 +12,0 @@
+-
+@@ -40 +39,0 @@
+- 
+
+
+  examples/FakeRecepcionarLoteRps.php:  
+@@ -12 +12,0 @@
+-
+@@ -43,5 +42,5 @@
+-                                // 2 - Tributação fora do município
+-                                // 3 - Isenção
+-                                // 4 - Imune
+-                                // 5 – Exigibilidade suspensa por decisão judicial
+-                                // 6 – Exigibilidade suspensa por procedimento administrativo
++    // 2 - Tributação fora do município
++    // 3 - Isenção
++    // 4 - Imune
++    // 5 – Exigibilidade suspensa por decisão judicial
++    // 6 – Exigibilidade suspensa por procedimento administrativo
+@@ -50,5 +49,5 @@
+-                                           // 2 - Estimativa
+-                                           // 3 – Sociedade de profissionais
+-                                           // 4 – Cooperativa
+-                                           // 5 – MEI – Simples Nacional
+-                                           // 6 – ME EPP – Simples Nacional
++    // 2 - Estimativa
++    // 3 – Sociedade de profissionais
++    // 4 – Cooperativa
++    // 5 – MEI – Simples Nacional
++    // 6 – ME EPP – Simples Nacional
+@@ -114 +113,0 @@
+-
+
+
+  +2 issues omitted
+
+• [Style] No trailing whitespace:
+  examples/Rps.php:  
+@@ -80 +80 @@
+-$std->IntermediarioServico->RazaoSocial = 'INSCRICAO DE TESTE SIATU - D AGUA -PAULINO S'; 
++$std->IntermediarioServico->RazaoSocial = 'INSCRICAO DE TESTE SIATU - D AGUA -PAULINO S';
+
+
+  examples/json_schema_v1_00.php:  
+@@ -345 +345 @@
+-$std->Intermediarioservico->RazaoSocial = 'INSCRICAO DE TESTE SIATU - D AGUA -PAULINO S'; 
++$std->Intermediarioservico->RazaoSocial = 'INSCRICAO DE TESTE SIATU - D AGUA -PAULINO S';
+
+
+
+• [Style] Single blank line at eof:
+  examples/FakeRecepcionarLoteRps.php:  
+@@ -117 +117 @@
+-}
+\ No newline at end of file
++}
+
+
+  examples/Rps.php:  
+@@ -93 +93,0 @@
+-
+
+
+  examples/json_schema_v1_00.php:  
+@@ -387 +387 @@
+-file_put_contents("../storage/jsonSchemes/v$version/rps.schema", $jsonSchema);
+\ No newline at end of file
++file_put_contents("../storage/jsonSchemes/v$version/rps.schema", $jsonSchema);
+
+
+  +2 issues omitted
+
+• [Style] Align multiline comment:
+  src/Tools.php:  
+@@ -33,4 +33,4 @@
+-        $path = realpath(
+-            __DIR__ . '/../storage/schemes'
+-        );
+-        $this->xsdpath = $path . '/nfsetempuri.xsd';
++         * $path = realpath(
++         * __DIR__ . '/../storage/schemes'
++         * );
++         * $this->xsdpath = $path . '/nfsetempuri.xsd';
+
+
+
+• [Style] Binary operator spaces:
+  examples/Rps.php:  
+@@ -9,3 +9,3 @@
+-    'cnpj'  => '99999999000191',
+-    'im'    => '1733160024',
+-    'cmun'  => '2403251',
++    'cnpj' => '99999999000191',
++    'im' => '1733160024',
++    'cmun' => '2403251',
+
+
+  src/Common/Signer.php:  
+@@ -107 +107 @@
+-        $nsTransformMethod1 ='http://www.w3.org/2000/09/xmldsig#enveloped-signature';
++        $nsTransformMethod1 = 'http://www.w3.org/2000/09/xmldsig#enveloped-signature';
+
+
+
+• [Style] Cast spaces:
+  src/Common/Tools.php:  
+@@ -65 +65 @@
+-        return (object)$urls[$cmun];
++        return (object) $urls[$cmun];
+@@ -141 +141 @@
+-        $response = (string)$this->soap->send(
++        $response = (string) $this->soap->send(
+
+
+  src/Rps.php:  
+@@ -113 +113 @@
+-        $validator->check($data, (object)['$ref' => 'file://' . $this->jsonschema]);
++        $validator->check($data, (object) ['$ref' => 'file://' . $this->jsonschema]);
+
+
+
+• [Style] No blank lines after class opening:
+  src/Common/Soap/SoapInterface.php:  
+@@ -23 +23,0 @@
+-    
+
+
+
+• [Style] No extra blank lines:
+  examples/Rps.php:  
+@@ -18 +18,0 @@
+-
+
+
+  examples/json_schema_v1_00.php:  
+@@ -283 +283,0 @@
+-
+
+
+  src/Common/Tools.php:  
+@@ -68 +68,0 @@
+-
+
+
+
+• [Style] No whitespace in blank line:
+  src/Common/Soap/SoapInterface.php:  
+@@ -23 +23 @@
+-    
++
+@@ -32 +32 @@
+-    
++
+@@ -38 +38 @@
+-    
++
+@@ -44 +44 @@
+-    
++
+@@ -50 +50 @@
+-    
++
+@@ -56 +56 @@
+-    
++
+@@ -65 +65 @@
+-    
++
+
+
+  src/Common/Standardize.php:  
+@@ -50 +50 @@
+-    
++
+@@ -55 +55 @@
+-    
++
+@@ -87 +87 @@
+-    
++
+@@ -96 +96 @@
+-    
++
+@@ -115 +115 @@
+-    
++
+@@ -128 +128 @@
+-    
++
+
+
+  src/Rps.php:  
+@@ -36 +36 @@
+-    
++
+@@ -45 +45 @@
+-    
++
+@@ -54 +54 @@
+-    
++
+@@ -67 +67 @@
+-    
++
+@@ -81 +81 @@
+-    
++
+
+
+  +7 issues omitted
+
+• [Style] Single quote:
+  src/Common/Tools.php:  
+@@ -60 +60 @@
+-        $path = realpath(__DIR__ . "/../../storage/urls_webservices.json");
++        $path = realpath(__DIR__ . '/../../storage/urls_webservices.json');
+@@ -63 +63 @@
+-            throw new \Exception("Não localizado parâmetros para esse municipio.");
++            throw new \Exception('Não localizado parâmetros para esse municipio.');
+@@ -83,4 +83,4 @@
+-        $this->prestador = "<Prestador>"
+-            . "<Cnpj>" . $this->config->cnpj . "</Cnpj>"
+-            . "<InscricaoMunicipal>" . $this->config->im . "</InscricaoMunicipal>"
+-            . "</Prestador>";
++        $this->prestador = '<Prestador>'
++            . '<Cnpj>' . $this->config->cnpj . '</Cnpj>'
++            . '<InscricaoMunicipal>' . $this->config->im . '</InscricaoMunicipal>'
++            . '</Prestador>';
+@@ -123 +123 @@
+-            $action = str_replace("www2", "www", $action);
++            $action = str_replace('www2', 'www', $action);
+@@ -126 +126 @@
+-            throw new \Exception("Não está registrada a URL para o ambiente "
++            throw new \Exception('Não está registrada a URL para o ambiente '
+@@ -129 +129 @@
+-        $url = sprintf("%s%s.CLS", $url, $operation);
++        $url = sprintf('%s%s.CLS', $url, $operation);
+@@ -137 +137 @@
+-            "Content-Type: text/xml;charset=UTF-8",
++            'Content-Type: text/xml;charset=UTF-8',
+@@ -180,4 +180,4 @@
+-        $env = "<soapenv:Envelope "
+-            . "xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">"
+-            . "<soapenv:Header/>"
+-            . "<soapenv:Body>"
++        $env = '<soapenv:Envelope '
++            . 'xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">'
++            . '<soapenv:Header/>'
++            . '<soapenv:Body>'
+@@ -187,2 +187,2 @@
+-            . "</soapenv:Body>"
+-            . "</soapenv:Envelope>";
++            . '</soapenv:Body>'
++            . '</soapenv:Envelope>';
+@@ -190 +190 @@
+-            $env = str_replace("www2", "www", $env);
++            $env = str_replace('www2', 'www', $env);
+
+
+  src/Rps.php:  
+@@ -115 +115 @@
+-            $msg = "";
++            $msg = '';
+
+
+  src/Tools.php:  
+@@ -49,3 +49,3 @@
+-        $pedido = "<Pedido>"
+-            . "<InfPedidoCancelamento>"
+-            . "<IdentificacaoNfse>"
++        $pedido = '<Pedido>'
++            . '<InfPedidoCancelamento>'
++            . '<IdentificacaoNfse>'
+@@ -53,4 +53,4 @@
+-            . "<Cnpj>" . $this->config->cnpj . "</Cnpj>"
+-            . "<InscricaoMunicipal>" . $this->config->im . "</InscricaoMunicipal>"
+-            . "<CodigoMunicipio>" . $this->config->cmun . "</CodigoMunicipio>"
+-            . "</IdentificacaoNfse>"
++            . '<Cnpj>' . $this->config->cnpj . '</Cnpj>'
++            . '<InscricaoMunicipal>' . $this->config->im . '</InscricaoMunicipal>'
++            . '<CodigoMunicipio>' . $this->config->cmun . '</CodigoMunicipio>'
++            . '</IdentificacaoNfse>'
+@@ -58,2 +58,2 @@
+-            . "</InfPedidoCancelamento>"
+-            . "</Pedido>";
++            . '</InfPedidoCancelamento>'
++            . '</Pedido>';
+@@ -62 +62 @@
+-        $content = "<CancelarNfseEnvio>"
++        $content = '<CancelarNfseEnvio>'
+@@ -64 +64 @@
+-            . "</CancelarNfseEnvio>";
++            . '</CancelarNfseEnvio>';
+@@ -80 +80 @@
+-        $content = "<ConsultarLoteRpsEnvio>"
++        $content = '<ConsultarLoteRpsEnvio>'
+@@ -83 +83 @@
+-            . "</ConsultarLoteRpsEnvio>";
++            . '</ConsultarLoteRpsEnvio>';
+@@ -100 +100 @@
+-        $content = "<ConsultarNfseEnvio>"
++        $content = '<ConsultarNfseEnvio>'
+@@ -102 +102 @@
+-            . "<PeriodoEmissao>"
++            . '<PeriodoEmissao>'
+@@ -105 +105 @@
+-            . "</PeriodoEmissao>";
++            . '</PeriodoEmissao>';
+@@ -108,2 +108,2 @@
+-            $content .= "<Tomador>"
+-                . "<CpfCnpj>";
++            $content .= '<Tomador>'
++                . '<CpfCnpj>';
+@@ -115 +115 @@
+-            $content .= "</CpfCnpj>";
++            $content .= '</CpfCnpj>';
+@@ -119 +119 @@
+-            $content .= "</Tomador>";
++            $content .= '</Tomador>';
+@@ -121 +121 @@
+-        $content .= "</ConsultarNfseEnvio>";
++        $content .= '</ConsultarNfseEnvio>';
+@@ -135,3 +135,3 @@
+-        $operation = "ConsultarNfsePorRps";
+-        $content = "<ConsultarNfseRpsEnvio>"
+-            . "<IdentificacaoRps>"
++        $operation = 'ConsultarNfsePorRps';
++        $content = '<ConsultarNfseRpsEnvio>'
++            . '<IdentificacaoRps>'
+@@ -141 +141 @@
+-            . "</IdentificacaoRps>"
++            . '</IdentificacaoRps>'
+@@ -143 +143 @@
+-            . "</ConsultarNfseRpsEnvio>";
++            . '</ConsultarNfseRpsEnvio>';
+@@ -167 +167 @@
+-        $contentmsg = "<EnviarLoteRpsEnvio>"
++        $contentmsg = '<EnviarLoteRpsEnvio>'
+@@ -170,2 +170,2 @@
+-            . "<Cnpj>" . $this->config->cnpj . "</Cnpj>"
+-            . "<InscricaoMunicipal>" . $this->config->im . "</InscricaoMunicipal>"
++            . '<Cnpj>' . $this->config->cnpj . '</Cnpj>'
++            . '<InscricaoMunicipal>' . $this->config->im . '</InscricaoMunicipal>'
+@@ -173 +173 @@
+-            . "<ListaRps>"
++            . '<ListaRps>'
+@@ -175,3 +175,3 @@
+-            . "</ListaRps>"
+-            . "</LoteRps>"
+-            . "</EnviarLoteRpsEnvio>";
++            . '</ListaRps>'
++            . '</LoteRps>'
++            . '</EnviarLoteRpsEnvio>';
+
+
+  +8 issues omitted
+
+• [Style] Phpdoc trim:
+  src/Common/Soap/SoapInterface.php:  
+@@ -34 +34,0 @@
+-     *
+
+
+
+• [Style] Ordered class elements:
+  src/Common/Standardize.php:  
+@@ -57,0 +57,9 @@
++     * Returns extract node from XML
++     * @return string
++     */
++    public function __toString()
++    {
++        return $this->node;
++    }
++    
++    /**
+@@ -86,9 +95,0 @@
+-    }
+-    
+-    /**
+-     * Returns extract node from XML
+-     * @return string
+-     */
+-    public function __toString()
+-    {
+-        return $this->node;
+
+
+  src/Common/Tools.php:  
+@@ -52,15 +52,0 @@
+-    /**
+-     * load webservice parameters
+-     * @param string $cmun
+-     * @return object
+-     * @throws \Exception
+-     */
+-    protected function loadWsobj($cmun)
+-    {
+-        $path = realpath(__DIR__ . "/../../storage/urls_webservices.json");
+-        $urls = json_decode(file_get_contents($path), true);
+-        if (empty($urls[$cmun])) {
+-            throw new \Exception("Não localizado parâmetros para esse municipio.");
+-        }
+-        return (object)$urls[$cmun];
+-    }
+@@ -68 +53,0 @@
+-
+@@ -79,11 +63,0 @@
+-     * Build tag Prestador
+-     */
+-    protected function buildPrestadorTag()
+-    {
+-        $this->prestador = "<Prestador>"
+-            . "<Cnpj>" . $this->config->cnpj . "</Cnpj>"
+-            . "<InscricaoMunicipal>" . $this->config->im . "</InscricaoMunicipal>"
+-            . "</Prestador>";
+-    }
+-
+-    /**
+@@ -149,0 +122,27 @@
++    }
++
++    /**
++     * load webservice parameters
++     * @param string $cmun
++     * @return object
++     * @throws \Exception
++     */
++    protected function loadWsobj($cmun)
++    {
++        $path = realpath(__DIR__ . "/../../storage/urls_webservices.json");
++        $urls = json_decode(file_get_contents($path), true);
++        if (empty($urls[$cmun])) {
++            throw new \Exception("Não localizado parâmetros para esse municipio.");
++        }
++        return (object)$urls[$cmun];
++    }
++
++    /**
++     * Build tag Prestador
++     */
++    protected function buildPrestadorTag()
++    {
++        $this->prestador = "<Prestador>"
++            . "<Cnpj>" . $this->config->cnpj . "</Cnpj>"
++            . "<InscricaoMunicipal>" . $this->config->im . "</InscricaoMunicipal>"
++            . "</Prestador>";
+
+
+  src/Rps.php:  
+@@ -69,14 +69,0 @@
+-     * Inicialize properties and valid input
+-     * @param stdClass $rps
+-     */
+-    private function init(stdClass $rps = null)
+-    {
+-        if (!empty($rps)) {
+-            $this->std = $this->propertiesToLower($rps);
+-            $ver = str_replace('.', '_', $rps->version);
+-            $this->jsonschema = realpath("../storage/jsonSchemes/v$ver/rps.schema");
+-            $this->validInputData($this->std);
+-        }
+-    }
+-    
+-    /**
+@@ -122,0 +108,14 @@
++    }
++    
++    /**
++     * Inicialize properties and valid input
++     * @param stdClass $rps
++     */
++    private function init(stdClass $rps = null)
++    {
++        if (!empty($rps)) {
++            $this->std = $this->propertiesToLower($rps);
++            $ver = str_replace('.', '_', $rps->version);
++            $this->jsonschema = realpath("../storage/jsonSchemes/v$ver/rps.schema");
++            $this->validInputData($this->std);
++        }
+
+
+  +2 issues omitted
+
+• [Style] Ordered imports:
+  examples/FakeConsultarLoteRps.php:  
+@@ -7,0 +7,2 @@
++use NFePHP\NFSeTinus\Common\FakePretty;
++use NFePHP\NFSeTinus\Common\Soap\SoapFake;
+@@ -8,2 +10,0 @@
+-use NFePHP\NFSeTinus\Common\Soap\SoapFake;
+-use NFePHP\NFSeTinus\Common\FakePretty;
+
+
+  examples/FakeConsultarNfse.php:  
+@@ -7,0 +7 @@
++use NFePHP\NFSeTinus\Common\FakePretty;
+@@ -9 +10,0 @@
+-use NFePHP\NFSeTinus\Common\FakePretty;
+
+
+  examples/FakeConsultarNfsePorRps.php:  
+@@ -7,0 +7,2 @@
++use NFePHP\NFSeTinus\Common\FakePretty;
++use NFePHP\NFSeTinus\Common\Soap\SoapFake;
+@@ -8,2 +10,0 @@
+-use NFePHP\NFSeTinus\Common\Soap\SoapFake;
+-use NFePHP\NFSeTinus\Common\FakePretty;
+
+
+  +1 issues omitted
+
+✨ See something that needs to be improved? Create an issue or send us a pull request: https://github.com/nunomaduro/phpinsights
